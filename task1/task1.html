@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .contain{
+            font-size: 15px;
+            font-family: "宋体",sans-serif;
+            letter-spacing: 1px;
+            width: 400px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        #button{
+            width: 100px;
+            height: 30px;
+            background: lightskyblue;
+            color: white;
+            margin: 10px 0 5px 230px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <label for="air_quality">请输入北京的空气质量：</label>
+        <input type="text" id="air_quality">
+        <br>
+        <button id="button">确认填写</button>
+        <p>您输入的值为：<span id="aq_display">尚未输入</span></p>
+    </div>
+    <script>
+        var button = document.getElementById("button");
+        
+        button.onclick = function () {
+            //获取输入框中输入的值
+            var input = document.getElementById("air_quality");
+            //获取显示值的位置
+            var aq = document.getElementById("aq_display");
+            if(input.value != ""){
+            //将输入的值显示出来
+            aq.innerHTML = input.value;
+            } else {
+                alert("请勿输入空值")
+            }
+        }
+    </script>
+</body>
+</html>
