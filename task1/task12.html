@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务一：零基础JavaScript编码（一）</title>
+    <style>
+        form{
+            width: 240px;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        form input[type="text"]{
+            width: 100px;
+            outline: none;
+        }
+        form input[type="button"]{
+            width: 100%;
+            height: 30px;
+            margin: 20px 0;
+            color: white;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: 0;
+            background: aqua;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="idol">请输入您的爱豆：</label>
+        <input type="text" name="idol" id="idol">
+        <br>
+        <input type="button" value="确认填写" id="affirm">
+        <br>
+        <label>您的爱豆是：</label>
+        <span id="showIdol">尚未输入</span>
+    </form>
+
+    <script>
+        var input = document.getElementById("idol");
+        input.focus();
+        var button = document.getElementById("affirm");
+        button.onclick = function () {
+            var idol = input.value;
+            if(idol == "" || idol == null){
+                alert("输入值不得为空！");
+                input.focus();
+            }else if(!isNaN(idol)){
+                alert("请输入符合的字符串！");
+                input.value = "";
+                input.focus();
+            }else {
+                document.getElementById("showIdol").innerHTML = idol;
+            }
+            input.value = "";
+            input.focus();
+        }
+
+    </script>
+</body>
+</html>
