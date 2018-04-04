@@ -1,65 +1,68 @@
-var num = document.getElementById("inputNum");
+var button = document.getElementsByTagName("button");
 var ul = document.getElementById('display');
-num.focus();
+var input = document.getElementById('inputNum');
+input.focus();
 
-function addLeft() {
-    if(num.value!='' && !isNaN(num.value)){
+//左侧入
+button[0].onclick = function () {
+    if (!isNaN(parseInt(input.value)) && input.value != " ") {
         var li = document.createElement('li');
-        li.innerHTML = num.value;
-        ul.insertBefore(li,ul.firstChild);
-    }else if(num.value == ''){
-        alert('输入内容不得为空！');
+        li.innerHTML = input.value;li.onclick = function () {
+            this.parentNode.removeChild(this);
+        };
+        ul.insertBefore(li, ul.firstChild);
+        input.value = "";
+        input.focus();
+    }else if (input.value == "") {
+        alert("输入不可为空！");
+        input.value = " ";
+        input.focus();
     }else{
-        alert('请输入数字！');
+        alert("请输入数字!");
+        input.value = " ";
+        input.focus();
     }
-    
-    num.focus();
-    num.value = '';
 }
-
-function addRight() {
-    if(num.value!='' && !isNaN(num.value)){
+//右侧入
+button[1].onclick = function () {
+    if (!isNaN(parseInt(input.value)) && input.value != " ") {
         var li = document.createElement('li');
-        li.innerHTML = num.value;
+        li.innerHTML = input.value;
+        //给li添加点击属性，点击时删除自身。
+        li.onclick = function () {
+            this.parentNode.removeChild(li);
+        };
         ul.appendChild(li);
-    }else if(num.value == ''){
-        alert('输入内容不得为空！');
+        input.value = "";
+        input.focus();
+    }else if (input.value == "") {
+        alert("输入不可为空！");
+        input.value = " ";
+        input.focus();
     }else{
-        alert('请输入数字！');
-    }
-
-    num.focus();
-    num.value = '';
+        alert("请输入数字!");
+        input.value = " ";
+        input.focus();
+    };
 }
-
-function deletLeft() {
+//左侧出
+button[2].onclick = function () {
     var li = ul.firstChild;
-    while(li.nodeType != 1){
-        li = get_NextSibling(li);
+    //判断ul的第一个子节点是否为元素节点
+    while (li && li.nodeType!=1){
+        li =li.nextSibling;
     }
     ul.removeChild(li);
+
 }
 
-function get_NextSibling(n) {
-    var m = n.nextSibling;
-    if(m&&m.nodeType != 1){
-        m = m.nextSibling;
-    }
-    return m;
-}
-
-function deletRight() {
+//右侧出
+button[3].onclick = function () {
     var li = ul.lastChild;
-    while(li.nodeType != 1){
-        li = get_PreviousSibling(li);
+    //判断ul的最后一个子节点是否为元素节点
+    while (li && li.nodeType!=1){
+        li = li.previousSibling;
     }
-    ul.removeChild(li);
+    ul.removeChild(li)
 }
 
-function get_PreviousSibling(n) {
-    var m = n.previousSibling;
-    if(m && m.nodeType!=1){
-        m = m.previousSibling;
-    }
-    return m;
-}
