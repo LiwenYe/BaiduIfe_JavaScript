@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务六：基础JavaScript练习（三）</title>
+    <link href="task6.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="main">
+        <div class="operate">
+            <textarea id="inputContent"></textarea>
+            <button onclick="leftIn()">左侧入</button>
+            <button onclick="rightIn()" class="mr">右侧入</button>
+            <button onclick="leftOut()">左侧出</button>
+            <button onclick="rightOut()" class="mr">右侧出</button>
+        </div>
+        <div class="search">
+            <input type="text" name="search">
+            <button onclick="search()">查询</button>
+        </div>
+
+        <ul id="display"></ul>
+    </div>
+    <script src="task6.js"></script>
+</body>
+</html>
