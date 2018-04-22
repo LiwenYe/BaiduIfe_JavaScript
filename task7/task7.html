@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务七：JavaScript和树（一）</title>
+    <script src="task7.js"></script>
+    <style>
+        div{
+            border: 1px solid #000000;
+        }
+       #root{
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        div[class$='1']{
+            width: 185px;
+            height: 180px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        div[class$='2']{
+            width: 80px;
+            height: 160px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        div[class$='3']{
+            width: 32px;
+            height: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="child1">
+            <div class="child2">
+                <div class="child3">
+
+                </div>
+                <div class="child3">
+
+                </div>
+            </div>
+            <div class="child2">
+                <div class="child3">
+
+                </div>
+                <div class="child3">
+
+                </div>
+            </div>
+        </div>
+        <div class="child1">
+            <div class="child2">
+                <div class="child3">
+
+                </div>
+                <div class="child3">
+
+                </div>
+            </div>
+            <div class="child2">
+                <div class="child3">
+
+                </div>
+                <div class="child3">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <button onclick="starPreOrder()">前序遍历</button>
+    <button onclick="starInOrder()">中序遍历</button>
+    <button onclick="startPostOrder()">后序遍历</button>
+</body>
+</html>
